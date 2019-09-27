@@ -8,8 +8,8 @@ function renderCourseForm(args) {
     course: {},
     saving: false,
     errors: {},
-    onSave: () => { },
-    onChange: () => { }
+    onSave: () => {},
+    onChange: () => {}
   };
 
   const props = { ...defaultProps, ...args };
@@ -28,9 +28,7 @@ it('labels save buttons as "Save" when not saving', () => {
   expect(wrapper.find("button").text()).toBe("Save");
 });
 
-it('labels save buttons as "Saving..." when saving', () => {
+it('labels save button as "Saving..." when saving', () => {
   const wrapper = renderCourseForm({ saving: true });
   expect(wrapper.find("button").text()).toBe("Saving...");
 });
-
-

@@ -30,5 +30,3 @@ it("sets submit button label 'Save' when saving is false", () => {
 
   expect(tree).toMatchSnapshot();
 });
-
-
