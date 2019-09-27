@@ -48,6 +48,14 @@ const CourseForm = ({
         error={errors.category}
       />
 
+      <TextInput
+        name="duration"
+        label="Duration"
+        value={course.duration}
+        onChange={onChange}
+        error={errors.duration}
+      />
+
       <button type="submit" disabled={saving} className="btn btn-primary">
         {saving ? "Saving..." : "Save"}
       </button>
