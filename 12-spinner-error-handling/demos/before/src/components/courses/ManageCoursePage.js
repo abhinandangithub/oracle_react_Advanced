@@ -42,11 +42,24 @@ function ManageCoursePage({
     }));
   }
 
+  function validetaForm() {
+    // const { title, author, caterory } = course;
+    const errors = {};
+    if (!course.title) errors.title = 'Title is required';
+    setErrors(errors);
+    return Object.keys(errors).length;
+  }
+
   function handleSave(event) {
     event.preventDefault();
-    saveCourse(course).then(() => {
-      history.push("/courses");
-    });
+    if (!validetaForm()) {
+      saveCourse(course).then(() => {
+        history.push("/courses");
+      }).catch(error => {
+        alert('error');
+        setErrors({ onSave: error.message });
+      })
+    }
   }
 
   return (
@@ -97,3 +110,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ManageCoursePage);
+
+
